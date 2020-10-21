@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="dir_fc8c76662a31ffb673adaf99d4b67d51" kind="dir">
+    <compoundname>C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1</compoundname>
+    <innerdir refid="dir_3997d562dacbc77ba071f2a76398d7bf">C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Properties</innerdir>
+    <innerfile refid="_exercises_8cs">Exercises.cs</innerfile>
+    <innerfile refid="_program_8cs">Program.cs</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/"/>
+  </compounddef>
+</doxygen>

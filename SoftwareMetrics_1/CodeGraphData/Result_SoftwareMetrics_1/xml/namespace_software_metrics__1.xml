@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="namespace_software_metrics__1" kind="namespace">
+    <compoundname>SoftwareMetrics_1</compoundname>
+    <innerclass refid="class_software_metrics__1_1_1_exercises" prot="public">SoftwareMetrics_1::Exercises</innerclass>
+    <innerclass refid="class_software_metrics__1_1_1_program" prot="public">SoftwareMetrics_1::Program</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="4" column="1"/>
+  </compounddef>
+</doxygen>

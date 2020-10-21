@@ -1,0 +1,213 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_software_metrics__1_1_1_program" kind="class" prot="public">
+    <compoundname>SoftwareMetrics_1::Program</compoundname>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a4661ff66c3bfd3107d48da0532d75b9d" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.Main</definition>
+        <argsstring>(string[] args)</argsstring>
+        <name>Main</name>
+        <param>
+          <type>string[]</type>
+          <declname>args</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="8" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="8" bodyend="12"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a7592216d22c21042a5c7d8414acf44a8" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool SoftwareMetrics_1.Program.IsNumber</definition>
+        <argsstring>(string n)</argsstring>
+        <name>IsNumber</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="16" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="16" bodyend="20"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1afb2a45a3e8065fbe67111a7db8b2d9af" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool SoftwareMetrics_1.Program.IsNumber2</definition>
+        <argsstring>(string n)</argsstring>
+        <name>IsNumber2</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="24" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="24" bodyend="33"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a80923a73ce324d4b9c752b7824f3c3f6" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool SoftwareMetrics_1.Program.IsNumber3</definition>
+        <argsstring>(string n)</argsstring>
+        <name>IsNumber3</name>
+        <param>
+          <type>string</type>
+          <declname>n</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="37" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="37" bodyend="48"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a606ce87973431ebba39edb0290f5ff96" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.Work</definition>
+        <argsstring>(string i)</argsstring>
+        <name>Work</name>
+        <param>
+          <type>string</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="52" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="52" bodyend="62"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a1f309305589166436d91e39f9c21d223" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.CompareNumbers</definition>
+        <argsstring>(int x, int y)</argsstring>
+        <name>CompareNumbers</name>
+        <param>
+          <type>int</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="66" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="66" bodyend="71"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a0d734bbb8318c2f2eaadf075c6d27f16" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.CompareNumbers2</definition>
+        <argsstring>(string x, string y)</argsstring>
+        <name>CompareNumbers2</name>
+        <param>
+          <type>string</type>
+          <declname>x</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>y</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="75" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="75" bodyend="88"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1a7b45bfb7d30cf97d0343900945378eb0" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.TriangleType</definition>
+        <argsstring>(int a, int b, int c)</argsstring>
+        <name>TriangleType</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="92" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="92" bodyend="112"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1adf80c83d2ad4aa1c987b721b7218d0f3" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.GetMedal</definition>
+        <argsstring>(int position)</argsstring>
+        <name>GetMedal</name>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="116" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="116" bodyend="135"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_program_1aaa87efaf61945a852648ca63c6c185c2" prot="public" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Program.GetMedal2</definition>
+        <argsstring>(int position)</argsstring>
+        <name>GetMedal2</name>
+        <param>
+          <type>int</type>
+          <declname>position</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="139" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="139" bodyend="159"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" line="7" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Program.cs" bodystart="6" bodyend="160"/>
+    <listofallmembers>
+      <member refid="class_software_metrics__1_1_1_program_1a1f309305589166436d91e39f9c21d223" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>CompareNumbers</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a0d734bbb8318c2f2eaadf075c6d27f16" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>CompareNumbers2</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1adf80c83d2ad4aa1c987b721b7218d0f3" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>GetMedal</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1aaa87efaf61945a852648ca63c6c185c2" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>GetMedal2</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a7592216d22c21042a5c7d8414acf44a8" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>IsNumber</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1afb2a45a3e8065fbe67111a7db8b2d9af" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>IsNumber2</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a80923a73ce324d4b9c752b7824f3c3f6" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>IsNumber3</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a4661ff66c3bfd3107d48da0532d75b9d" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>Main</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a7b45bfb7d30cf97d0343900945378eb0" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>TriangleType</name></member>
+      <member refid="class_software_metrics__1_1_1_program_1a606ce87973431ebba39edb0290f5ff96" prot="public" virt="non-virtual"><scope>SoftwareMetrics_1::Program</scope><name>Work</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

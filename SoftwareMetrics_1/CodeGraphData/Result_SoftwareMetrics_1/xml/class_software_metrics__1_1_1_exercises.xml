@@ -1,0 +1,133 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="class_software_metrics__1_1_1_exercises" kind="class" prot="public">
+    <compoundname>SoftwareMetrics_1::Exercises</compoundname>
+      <sectiondef kind="private-static-func">
+      <memberdef kind="function" id="class_software_metrics__1_1_1_exercises_1a3e9d20f2a76f15012b4d1457e0fe7a66" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>int</type>
+        <definition>static int SoftwareMetrics_1.Exercises.SumPositive</definition>
+        <argsstring>(int a, int b)</argsstring>
+        <name>SumPositive</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="7" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="7" bodyend="12"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_exercises_1a94026d79ba444c0c018722610533c9c5" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool SoftwareMetrics_1.Exercises.ContainsNegative</definition>
+        <argsstring>(int a, int b, int c, int d)</argsstring>
+        <name>ContainsNegative</name>
+        <param>
+          <type>int</type>
+          <declname>a</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>c</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>d</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="14" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="14" bodyend="18"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_exercises_1ab205ad6c08ea2fc5d942f995e3d10e79" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>bool</type>
+        <definition>static bool SoftwareMetrics_1.Exercises.ValidRGB</definition>
+        <argsstring>(int r, int g, int b)</argsstring>
+        <name>ValidRGB</name>
+        <param>
+          <type>int</type>
+          <declname>r</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>g</declname>
+        </param>
+        <param>
+          <type>int</type>
+          <declname>b</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="20" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="20" bodyend="26"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_exercises_1a90c126c89ef6ee32ea5440597b23e439" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>void</type>
+        <definition>static void SoftwareMetrics_1.Exercises.DoSomeWork</definition>
+        <argsstring>(int i)</argsstring>
+        <name>DoSomeWork</name>
+        <param>
+          <type>int</type>
+          <declname>i</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="28" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="28" bodyend="59"/>
+      </memberdef>
+      <memberdef kind="function" id="class_software_metrics__1_1_1_exercises_1a0a85bb39c8c83071e7e9ce195e9ae9ba" prot="private" static="yes" const="no" explicit="no" inline="yes" virt="non-virtual">
+        <type>string</type>
+        <definition>static string SoftwareMetrics_1.Exercises.Add</definition>
+        <argsstring>(string number1, string number2)</argsstring>
+        <name>Add</name>
+        <param>
+          <type>string</type>
+          <declname>number1</declname>
+        </param>
+        <param>
+          <type>string</type>
+          <declname>number2</declname>
+        </param>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="61" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="61" bodyend="85"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" line="6" column="1" bodyfile="C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Exercises.cs" bodystart="5" bodyend="86"/>
+    <listofallmembers>
+      <member refid="class_software_metrics__1_1_1_exercises_1a0a85bb39c8c83071e7e9ce195e9ae9ba" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Exercises</scope><name>Add</name></member>
+      <member refid="class_software_metrics__1_1_1_exercises_1a94026d79ba444c0c018722610533c9c5" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Exercises</scope><name>ContainsNegative</name></member>
+      <member refid="class_software_metrics__1_1_1_exercises_1a90c126c89ef6ee32ea5440597b23e439" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Exercises</scope><name>DoSomeWork</name></member>
+      <member refid="class_software_metrics__1_1_1_exercises_1a3e9d20f2a76f15012b4d1457e0fe7a66" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Exercises</scope><name>SumPositive</name></member>
+      <member refid="class_software_metrics__1_1_1_exercises_1ab205ad6c08ea2fc5d942f995e3d10e79" prot="private" virt="non-virtual"><scope>SoftwareMetrics_1::Exercises</scope><name>ValidRGB</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>

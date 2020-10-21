@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="class_software_metrics__1_1_1_exercises" kind="class"><name>SoftwareMetrics_1::Exercises</name>
+    <member refid="class_software_metrics__1_1_1_exercises_1a3e9d20f2a76f15012b4d1457e0fe7a66" kind="function"><name>SumPositive</name></member>
+    <member refid="class_software_metrics__1_1_1_exercises_1a94026d79ba444c0c018722610533c9c5" kind="function"><name>ContainsNegative</name></member>
+    <member refid="class_software_metrics__1_1_1_exercises_1ab205ad6c08ea2fc5d942f995e3d10e79" kind="function"><name>ValidRGB</name></member>
+    <member refid="class_software_metrics__1_1_1_exercises_1a90c126c89ef6ee32ea5440597b23e439" kind="function"><name>DoSomeWork</name></member>
+    <member refid="class_software_metrics__1_1_1_exercises_1a0a85bb39c8c83071e7e9ce195e9ae9ba" kind="function"><name>Add</name></member>
+  </compound>
+  <compound refid="class_software_metrics__1_1_1_program" kind="class"><name>SoftwareMetrics_1::Program</name>
+    <member refid="class_software_metrics__1_1_1_program_1a4661ff66c3bfd3107d48da0532d75b9d" kind="function"><name>Main</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a7592216d22c21042a5c7d8414acf44a8" kind="function"><name>IsNumber</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1afb2a45a3e8065fbe67111a7db8b2d9af" kind="function"><name>IsNumber2</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a80923a73ce324d4b9c752b7824f3c3f6" kind="function"><name>IsNumber3</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a606ce87973431ebba39edb0290f5ff96" kind="function"><name>Work</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a1f309305589166436d91e39f9c21d223" kind="function"><name>CompareNumbers</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a0d734bbb8318c2f2eaadf075c6d27f16" kind="function"><name>CompareNumbers2</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1a7b45bfb7d30cf97d0343900945378eb0" kind="function"><name>TriangleType</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1adf80c83d2ad4aa1c987b721b7218d0f3" kind="function"><name>GetMedal</name></member>
+    <member refid="class_software_metrics__1_1_1_program_1aaa87efaf61945a852648ca63c6c185c2" kind="function"><name>GetMedal2</name></member>
+  </compound>
+  <compound refid="namespace_software_metrics__1" kind="namespace"><name>SoftwareMetrics_1</name>
+  </compound>
+  <compound refid="namespace_system" kind="namespace"><name>System</name>
+  </compound>
+  <compound refid="namespace_system_1_1_reflection" kind="namespace"><name>System::Reflection</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_compiler_services" kind="namespace"><name>System::Runtime::CompilerServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_runtime_1_1_interop_services" kind="namespace"><name>System::Runtime::InteropServices</name>
+  </compound>
+  <compound refid="namespace_system_1_1_text" kind="namespace"><name>System::Text</name>
+  </compound>
+  <compound refid="_exercises_8cs" kind="file"><name>Exercises.cs</name>
+  </compound>
+  <compound refid="_program_8cs" kind="file"><name>Program.cs</name>
+  </compound>
+  <compound refid="_assembly_info_8cs" kind="file"><name>AssemblyInfo.cs</name>
+  </compound>
+  <compound refid="dir_a004176fdf4c3a63c523185bbd1ae28f" kind="dir"><name>C:/Users/Pepo</name>
+  </compound>
+  <compound refid="dir_3997d562dacbc77ba071f2a76398d7bf" kind="dir"><name>C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1/Properties</name>
+  </compound>
+  <compound refid="dir_d84d60656defbf69951e1d14dbdccf07" kind="dir"><name>C:/Users/Pepo/source/repos</name>
+  </compound>
+  <compound refid="dir_fc8c76662a31ffb673adaf99d4b67d51" kind="dir"><name>C:/Users/Pepo/source/repos/SoftwareMetrics_1/SoftwareMetrics_1</name>
+  </compound>
+  <compound refid="dir_43d84672a3ddd1f9ea50f40793e3897e" kind="dir"><name>C:/Users/Pepo/source/repos/SoftwareMetrics_1</name>
+  </compound>
+  <compound refid="dir_e70a49c2158a77924341022bad1871eb" kind="dir"><name>C:/Users/Pepo/source</name>
+  </compound>
+  <compound refid="dir_d522931ffa1371640980b621734a4381" kind="dir"><name>C:/Users</name>
+  </compound>
+</doxygenindex>
