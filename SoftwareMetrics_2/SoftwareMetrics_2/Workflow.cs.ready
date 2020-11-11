@@ -1,0 +1,133 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace SoftwareMetrics_2_Workflow
+{
+    /*
+     * Имате няколко класа: служител (Employee), работодател (Employer) и проект (Project), описани по-долу.
+     * Имплементирайте методи:
+     *      Employee.IsValid() - служителя да е на 18 или повече години;
+     *      Employee.IsJobValid() - дали е на някоя от следните позиции: 
+     *          Developer,
+     *          QA,
+     *          Designer,
+     *          Project Manager,
+     *          Product Owner;
+     *      Employer.IsValid() - служителя да е на 18 или повече години;
+     *      Project.IsTeamValid() - да изпълнява следните условия:
+     *          Броят на служтелите да е равен на предварително зададения в Project.TeamSize;
+     *          Броят на служителите с роля "Инженер" да отговаря на зададения в Project.EngineeringCount;
+     *          "Инженер":
+     *              Developer,
+     *              QA,
+     *              Designer,
+     * Може да променяте пропърита, класове, да създавате ваши при нужда.
+     */
+
+    class Workflow
+    {
+    }
+
+    public class Person
+    {
+        public DateTime DoB { get; set; }
+        private bool IsAdult()
+        {
+            TimeSpan diff = DateTime.Now - DoB;
+            if (diff.TotalDays > 365 * 18)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public bool IsValid()
+        {
+            return this.IsAdult();
+        }
+    }
+
+    public class Job
+    {
+        public string Title { get; set; }
+        public bool IsEngeneering { get; set; }
+        public List<int> Scores { get; set; }
+
+        public Job()
+        {
+            Scores = new List<int>();
+        }
+
+        public Job(string title, bool isEngeneering) : this()
+        {
+            Title = title;
+            IsEngeneering = isEngeneering;
+        }
+
+        public bool CompareJob(string job)
+        {
+            //"projectManager"
+            //"Project Manager"
+            return string.Equals(job.Replace(" ", ""), Title.Replace(" ", ""), StringComparison.CurrentCultureIgnoreCase);
+        }
+    }
+
+    public class Constants
+    {
+        public static readonly List<Job> ValidJobs = new List<Job>()
+        {
+            new Job("Developer", true),
+            new Job("QA", true),
+            new Job("Designer", true),
+            new Job("Project Manager", false),
+            new Job("Product Owner", false)
+        };
+    }
+
+    public class Employee : Person
+    {
+        
+        public string JobTitle { get; set; }
+
+
+        public bool IsJobValid()
+        {
+            return Constants.ValidJobs.Any(i => i.CompareJob(JobTitle));
+        }
+
+        public Employee()
+        {
+        }
+    }
+
+    public class Employer : Person
+    {
+    }
+
+    public class Project
+    {
+        List<Employee> Employees { get; set; }
+        public int TeamSize { get; set; }
+        public int EngineeringCount { get; set; }
+        public bool IsTeamValid()
+        {
+            //1. check for TeamSize;
+            if (Employees.Count != TeamSize)
+            {
+                return false;
+            }
+
+            //2. check for EngineeringCount. Enginnering positions: Developer, QA, Designer
+            int engeneersCount = Constants.ValidJobs.Count(i => i.IsEngeneering == false);
+            if (engeneersCount != EngineeringCount)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+}

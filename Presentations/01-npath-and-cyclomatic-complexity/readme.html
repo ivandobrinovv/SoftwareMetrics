@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Метрики за анализ качеството на кода - Изчисляване на NPath и цикломатична сложност</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Димитър Ников, Пеньо Русев">
+    <meta name="generator" content="Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="slide no-padding">
+            <h1 class="empty">&nbsp;</h1>
+            <div class="subtitle">
+                    Изчисляване на NPath и цикломатична сложност
+            </div>
+            <div class="author">Изготвили:
+                    Димитър Ников, Пеньо Русев<br>
+                    <a href="mailto: penyo.rusev@primeholding.com?Subject=Метрики за анализ качеството на кода">penyo.rusev@primeholding.com</a>
+            </div>
+            <div class="copyright">
+                <a href="http://www.primeholding.com" rel="noopener" target="_blank">www.primeholding.com</a>
+            </div>
+        </div>
+        
+        <div class="slide">
+            
+<!-- _S9SLIDE_ -->
+<h1 id="съдържание">Съдържание</h1>
+
+<ul>
+  <li>Дефиниции</li>
+  <li>Пресмятане на цикломатична комплексност</li>
+  <li>Пресмятане на NPath комплексност</li>
+  <li>Q &amp; A</li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="дефиниции">Дефиниции</h1>
+
+<h3 id="метрики-на-софтуера">Метрики на софтуера</h3>
+
+<ul>
+  <li>Стандарт за измерване на степента, до която софтуера притежава някаква стойност</li>
+  <li>Представляват функции и/или показатели (резултат от прилагането на функциите), често се ползват като синоними</li>
+  <li>Най-често се използват при квантитативни измервания</li>
+  <li>Основна цел на прилагането им:
+    <ul>
+      <li>Получаване на обективни измервания (метрики) на кода</li>
+      <li>Получаване на възпроизведими метрики</li>
+      <li>Получаване на количествено измерими метрики</li>
+    </ul>
+  </li>
+  <li>Приложение:
+    <ul>
+      <li>Budget planning</li>
+      <li>Cost estimation</li>
+      <li>QA / Testing</li>
+      <li>Performance optimization</li>
+      <li>Оптимално изпълнение на задачите (в рамките на екип, проект, организация и т.н.)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="често-използвани-софтуерни-метрики">Често използвани софтуерни метрики</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Брой bugs за ред код (bugs per line of code)</li>
+  <li>Code coverage</li>
+  <li>Кохезия (Cohesion)</li>
+  <li>Плътност на коментарите (Comment density)</li>
+  <li>Зависимост (Coupling / Dependency)</li>
+  <li>Цикломатична комплексност</li>
+  <li>Брой редове на изходния код</li>
+  <li>Брой на класове и интерфейси</li>
+  <li>Време за изпълнение на програмата</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="цикломатична-комплексност">Цикломатична комплексност</h1>
+
+<h3 id="дефиниция">Дефиниция</h3>
+
+<ul>
+  <li>Софтуерна метрика използвана за определяне сложността на програмата</li>
+  <li>Още е известна и като комплексност на МакКейб</li>
+  <li>Квантитативна мярка за броя линейно независими пътища за изпълнение на изходния код</li>
+  <li>За изходен код, който не съдържа control flow statements - цикломатичната сложност е 1</li>
+  <li>При добавяне на прост <strong>if-else</strong> оператор комплексността нараства на 2, за вложен <strong>if</strong> оператор с две условия - 3 и т.н.</li>
+  <li>Цикломатичната комплексност се пресмята, чрез т.нар. control flow graph на програмата (частта от кода, която се оценява)</li>
+  <li>Пресмятането става по формулата: <strong>M = E - N + 2P</strong>, където:
+    <ul>
+      <li><strong>М</strong> - Цикломатичната комплексност</li>
+      <li><strong>Е</strong> - Броя на ребрата в графа</li>
+      <li><strong>N</strong> - Броя на върховете в графа</li>
+      <li><strong>P</strong> - Броя на свързаните компоненти в графа</li>
+    </ul>
+  </li>
+  <li>При оценяване на семпла програма (single program) (или отделен метод), стойността на P е 1 - тогава може да използваме формулата <strong>M = E - N + 2</strong></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример">Пример:</h3>
+
+<p><br /></p>
+
+<p><img src="images/graph.png" alt="Cyclomatic Complexity" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Изпълнението на програмата започва от върха оцветен в червено</li>
+  <li>Първата група от три върха представлява циклична конструкция</li>
+  <li>Втората група от три върха представлява conditional statement</li>
+  <li>Изпълнението на програмата завършва във върха оцветен в синьо</li>
+  <li>Така представената програма има:
+    <ul>
+      <li>9 ребра</li>
+      <li>8 върха</li>
+      <li>1 свързан компонент (цикличната конструкция, всеки връх е свързан с другите)</li>
+    </ul>
+  </li>
+  <li>Цикломатичната комплексност е 9 - 8 + 2 * 1 = 3 (замествайки във формулата представена по-горе)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="допустими-стойности-за-цикломатична-комплексност">Допустими стойности за цикломатична комплексност:</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>1 до 10 - Нормална цикломатична комплексност - не представлява риск</li>
+  <li>11 до 20 - Средна цикломатична комплексност - нисък риск</li>
+  <li>21 до 50 - Висока цикломатична комплекснотс - среден риск, индикация за рефакторинг</li>
+  <li>над 50 - Много висока цикломатична комплексност - висок риск, затруднява тестването и поддържането на кода, задължителен рефакторинг</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="анализ-на-изходния-код-с-инструменти-на-visual-studio">Анализ на изходния код с инструменти на Visual Studio</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>От меню <strong>Analyze</strong> избираме <strong>Run code analysis</strong></li>
+  <li>По избор може да стартирате анализ за всички проекти в solution-а или само за избран проект (при multi-project solutions)</li>
+</ul>
+
+<p><img src="images/metrics.png" alt="Starting analysis" /></p>
+
+<ul>
+  <li>Правилата за анализ могат да се настройват както за solution-а, така и за избран проект</li>
+</ul>
+
+<p><img src="images/rulesets.png" alt="Configure analysis rules" /></p>
+
+<ul>
+  <li>Създаване на собствени правила за анализ - <a href="https://andrewlock.net/creating-a-roslyn-analyzer-in-visual-studio-2017/">https://andrewlock.net/creating-a-roslyn-analyzer-in-visual-studio-2017/</a></li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="npath-комплексност">NPath комплексност</h1>
+
+<h3 id="дефиниция-1">Дефиниция</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>NPath е метрика, която измерва сложността на изпълнение на базата на графи</li>
+  <li>NPath комплексността е броя ациклични пътища (варианти) за изпълнение на функция, модул, метод, клас и/или програма</li>
+  <li>Ацикличен път на изпълнение е вариант за изпълнение на програмен код, който не включва циклична структура</li>
+  <li>NPath комплексността има отношение към максималния брой тестове необходими за Code Coverage</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример-1">Пример:</h3>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">static double Add(double num1, double num2)
+{
+    if (Double.IsNaN(num1))
+    {
+        num1 = 0;
+    }
+
+    if (Double.IsNaN(num2))
+    {
+        num2 = 0;
+    }
+
+    return num1 + num2;
+}
+</code></pre>
+
+<p><br /></p>
+
+<p>В тази функция идентифицираме следните пътища (варианти) за изпълнение:</p>
+
+<p><br /></p>
+
+<ul>
+  <li>Аргумента <strong>num1</strong> не е число, но <strong>num2</strong> е число</li>
+  <li>Аргумента <strong>num2</strong> не е число, но <strong>num1</strong> е число</li>
+  <li>Двата аргумента не са числа</li>
+  <li>Двата аргумента са числа</li>
+</ul>
+
+<p><br /></p>
+
+<p>Следователно NPath комлпексността е <strong>4</strong></p>
+
+<p><br /></p>
+
+<h3 id="оптимизиране-на-примера">Оптимизиране на примера</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>За да подобрим тестваемостта на функцията трябва да намалим NPath комплексността</li>
+  <li>За целта може да разделим метода на малки части</li>
+  <li>Постигаме желания резултат, чрез следния рефакторинг:</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">static double CheckNumber(double num)
+{
+    if (Double.IsNaN(num))
+    {
+        return 0;
+    }
+
+    return num;
+}
+
+static double AddOptimized(double num1, double num2)
+{
+    return CheckNumber(num1) + CheckNumber(num2);
+}
+</code></pre>
+
+<p><br /></p>
+
+<ul>
+  <li>В посочения по-горе пример NPath комплексността е намалена, както следва:
+    <ul>
+      <li>Метода CheckNumber() има NPath комплексност със стойност 2</li>
+      <li>Метода Add() има NPath комплексност със стойност 1</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="допълнителни-инструменти">Допълнителни инструменти</h1>
+
+<ul>
+  <li><a href="https://docs.microsoft.com/en-us/visualstudio/modeling/map-dependencies-across-your-solutions?view=vs-2017">Code Map</a>: Visual Studio Enterprise component;</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=YaobinOuyang.CodeAtlas">Code Graph</a>: Visual Studio Extension;</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=FerencVizkeleti.QuickDiagramToolforC#overview">Quick Diagram Tool for C#</a>: Visual Studio Extension;</li>
+  <li><a href="http://www.aivosto.com/download.html">Visustin v8 Flow chart generator</a> - Free trial;</li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="задачи-за-самостоятелна-работа">Задачи за самостоятелна работа</h1>
+
+<ul>
+  <li>Стартирайте Code analysis за избран от вас проект или използвайте примерния код</li>
+  <li>Анализирайте резултатите за Цикломатичната комплексност на кода</li>
+  <li>Идентифицирайте потенциални проблемни части на кода и планирайте промени за оптимизиране</li>
+  <li>Направете анализ на NPath комплексността и идентифицирайте потенциални проблеми места в кода</li>
+</ul>
+
+        </div>
+        
+
+        <div class="footer">
+            Метрики за анализ качеството на кода - Изчисляване на NPath и цикломатична сложност
+        </div>
+    </div>
+
+<script src="js/slideshow.js"></script>
+<script src="js/prism.js"></script>
+
+<script>
+    var slideshow = new SlideShow();
+</script>
+</body>
+</html>

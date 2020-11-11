@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Метрики за анализ качеството на кода - Съдържание на практическите занятия</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Димитър Ников">
+    <meta name="generator" content="Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="slide no-padding">
+            <h1 class="empty">&nbsp;</h1>
+            <div class="subtitle">
+                    Съдържание на практическите занятия
+            </div>
+            <div class="author">
+                    Пеньо Русев<br>
+                    <a href="mailto: penyo.rusev@primeholding.com?Subject=Метрики за анализ качеството на кода">penyo.rusev@primeholding.com</a>
+            </div>
+            <div class="copyright">
+                <a href="http://www.primeholding.com" rel="noopener" target="_blank">www.primeholding.com</a>
+            </div>
+        </div>
+        
+        <div class="slide">
+            
+<!-- _S9SLIDE_ -->
+<h1 id="съдържание">Съдържание</h1>
+
+<ul>
+  <li>Списък на темите и аудиторна заетост</li>
+  <li>Необходими инструменти</li>
+  <li>Формиране на оценката</li>
+  <li>Конспект за изпит</li>
+  <li>Библиография</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="списък-на-темите">Списък на темите</h1>
+
+<ul>
+  <li>Изчисляване на NPath и цикломатична сложност</li>
+  <li>Стандартни инструменти на Visual Studio за анализ на кода. Тълкуване на резултатите</li>
+  <li>Статичен анализ на качеството на C# код с инструмента StyleCop</li>
+  <li>Анализиране на компилиран обектен код с FxCop за съответствие с .NET Framework Design Guidelines на Microsoft</li>
+  <li>Статичен анализ на кода с платформата Coverity</li>
+  <li>Управление на качеството на кода с Git Hooks. Check-in политики</li>
+  <li>Continuous integration</li>
+  <li>Рефакториране на код</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="необходими-инструменти">Необходими инструменти</h1>
+
+<ul>
+  <li><a href="https://www.ndepend.com/download">NDepend</a> - 14 дневна тестова версия</li>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=ChrisDahlberg.StyleCop">StyleCop for VisualStudio</a></li>
+  <li><a href="https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers/2.6.1">FxCop Analyzers</a></li>
+  <li><a href="https://git-scm.com/download/win">Git</a></li>
+  <li><a href="https://scan.coverity.com/users/sign_up">Coverity</a></li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="формиране-на-оценката">Формиране на оценката</h1>
+
+<p><br /></p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: left">Форма на проверка</th>
+      <th style="text-align: right">% от оценката</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align: left">Присъствие в час</td>
+      <td style="text-align: right">10</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Активно участие в часовете</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Тестова проверка</td>
+      <td style="text-align: right">20</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Курсова работа / Реферат</td>
+      <td style="text-align: right">50</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Изпит / Текуща оценка Изпит</td>
+      <td style="text-align: right">0</td>
+    </tr>
+    <tr>
+      <td style="text-align: left">Практика</td>
+      <td style="text-align: right">0</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="конспект-за-изпит">Конспект за изпит</h1>
+
+<ul>
+  <li>Качество на софтуeра. Модели на качеството</li>
+  <li>Модел на Боем. Йерархичен модел - фактори, критерии, метрики, оценъчни елементи</li>
+  <li>Класификационен модел</li>
+  <li>Софтуерни метрики - основни понятия, същност и класификация</li>
+  <li>Класически метрики. Метрика за размера на програма. Метрика на Маккейб за структурна (цикломатична) сложност</li>
+  <li>Метрика на Холстед за текстуална сложност. Метрика на Рехенберг за технологична сложност. Метрика за четимост</li>
+  <li>Стандарти за качеството на софтуера. Управление на качеството</li>
+  <li>Инструменти за анализ на кода. Рефакториране.</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="библиография">Библиография</h1>
+
+<ol>
+  <li>Stephen H. Kan, Metrics and Models in Software Quality Engineering, Addison-Wesley Professional; 2 edition, 2002</li>
+  <li>Lawrence H. Putnam, Ware Myers, Five Core Metrics: The Intelligence Behind Successful Software Management, Dorset House, 2003</li>
+  <li>Norman Fenton and James Bieman, Software Metrics: A Rigorous and Practical Approach, CRC Press; 3 edition, 2014</li>
+  <li>Gene Kim, Patrick Debois, John Willis, Jez Humble, John Allspaw, The DevOps Handbook: How to Create World-Class Agility, Reliability, and Security in Technology Organizations, IT Revolution Press, 2016</li>
+  <li>Аврам Ескенази, Нели Манева, Софтуерни технологии, КЛМН; второ издание, 2006</li>
+  <li>https://github.com/StyleCop/StyleCop</li>
+  <li>https://www.synopsys.com/software-integrity/security-testing/static-analysis-sast.html#</li>
+  <li>https://git-scm.com/docs/githooks</li>
+</ol>
+
+        </div>
+        
+
+        <div class="footer">
+            Метрики за анализ качеството на кода - Съдържание на практическите занятия
+        </div>
+    </div>
+
+<script src="js/slideshow.js"></script>
+<script src="js/prism.js"></script>
+
+<script>
+    var slideshow = new SlideShow();
+</script>
+</body>
+</html>

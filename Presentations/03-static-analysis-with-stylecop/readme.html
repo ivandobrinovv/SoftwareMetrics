@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Метрики за анализ качеството на кода - Статичен анализ на качеството на C# код с инструмента StyleCop</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Пеньо Русев, Димитър Ников">
+    <meta name="generator" content="Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="slide no-padding">
+            <h1 class="empty">&nbsp;</h1>
+            <div class="subtitle">
+                    Статичен анализ на качеството на C# код с инструмента StyleCop
+            </div>
+            <div class="author">
+                    Пеньо Русев, Димитър Ников<br>
+                    <a href="mailto: prusev@sbnd.net?Subject=Метрики за анализ качеството на кода">prusev@sbnd.net</a>
+            </div>
+            <div class="copyright">
+                <a href="http://www.primeholding.com" rel="noopener" target="_blank">www.primeholding.com</a>
+            </div>
+        </div>
+        
+        <div class="slide">
+            
+<!-- _S9SLIDE_ -->
+<h1 id="съдържание">Съдържание</h1>
+
+<ul>
+  <li>Въведение</li>
+  <li>Предимства при автоматизиране</li>
+  <li>Инсталиране и конфигуриране на StyleCop</li>
+  <li>Инсталиране и конфигуриране на FxCop</li>
+  <li>Q &amp; A</li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="въведение">Въведение</h1>
+
+<h3 id="какво-е-coding-standard">Какво е “coding standard”?</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Набор от правила или указания при създаване на изходен код</li>
+  <li>Определят следните аспекти:
+    <ul>
+      <li>Безопасност на кода - избягва се въвеждане (създаване) на грешки в прогмния код</li>
+      <li>Стил (на композиция) - улеснява поддържаемостта на кода</li>
+      <li>Сигурност - улеснява избягването на пропуск в сигурността</li>
+      <li>Ефикасност - увеличава прозиводителността на приложението</li>
+    </ul>
+  </li>
+  <li>Стандартите могат да бъдат прилагани, като:
+    <ul>
+      <li>Препоръки</li>
+      <li>Code reviews</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример">Пример</h3>
+
+<ul>
+  <li>Може да използваме Bubble Sort или Quick Sort за сортиране на данни</li>
+  <li>Bubble sort има сложност О(n2), докато Quick sort - O(n * log(n))</li>
+  <li>Ако примем, че трябва да сортираме 1 милион елемента и всяка проверка отнема 1 микросекунда - тогава:
+    <ul>
+      <li>Bubble sort ще се изпълни за 11 дни</li>
+      <li>Quick sort ще се изпълни за 19 секунди</li>
+    </ul>
+  </li>
+  <li>Двата алгоритъма сортират данни, но единия определено е по-полезен</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="прилагане-на-стандарти-при-създаване-на-код">Прилагане на стандарти при създаване на код</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Стандарти трябва да се прилагат, за да гарантират сигурност, надежност и производителност</li>
+  <li>Прилагането на стандарти гарантира качество на кода (според нивото на приложения стандарт)</li>
+  <li>Автоматизирането на процеса улеснява и повишава качеството при разработване</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="предимства-при-автоматизиране">Предимства при автоматизиране</h1>
+
+<ul>
+  <li>Стандартите се прилагат обективно понеже се анализра само изходен код или компилиран assembly</li>
+  <li>Процеса се изпълнява по-бързо и по-прецизно, ако се прилагат ръчно</li>
+  <li>Програмистите (авторите на кода) не се чувстват персонално засегнати</li>
+  <li>Спестява време при code reviews</li>
+  <li>Спестява време на разработчиците, понеже преглед на кода (code review) изисква по-малко време и итерации</li>
+  <li>Различните аспекти (source code, assemblies) се анализират с различни инструменти</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="инсталиране-и-конфигуриране-на-stylecop">Инсталиране и конфигуриране на StyleCop</h1>
+
+<h3 id="инсталиране">Инсталиране</h3>
+
+<p><br /></p>
+
+<ul>
+  <li><a href="https://marketplace.visualstudio.com/items?itemName=ChrisDahlberg.StyleCop">Visual Studio Plugin</a></li>
+  <li><a href="https://www.nuget.org/packages/StyleCop.MSBuild">MSBuild NuGet пакет</a></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="предимства-на-stylecop">Предимства на StyleCop</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Анализира изходен код, но не и компилиран код</li>
+  <li>Подходящ за проверка на елементи, като:
+    <ul>
+      <li>Spacing</li>
+      <li>Коментари</li>
+      <li>Композиция на файлове</li>
+      <li>Конвенции за именуване</li>
+    </ul>
+  </li>
+  <li>Затруднена е проверката на типови йерархии и програмна структура</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="конфигуриране-на-stylecop">Конфигуриране на StyleCop</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>За инстанцията на VisualStudio - %LocalAppData%\Microsoft\VisualStudio\15.0_80ca61a3\Extensions\awmorobh.u0c (за всяка инстанция версията ще е различна)</li>
+  <li>За конкретен проект - Settings.StyleCop в директорията на проекта</li>
+  <li>За конкретен файл - може да се избира дали да се включва / изключва от анализ</li>
+  <li>За конкретна част (блок) от кода - може да се избира дали да се включва / изключва от анализ</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="промяна-на-конфигурацията">Промяна на конфигурацията</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>За конкретен проект (стандартни настройки)</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/project-settings.png" alt="Project settings" /></p>
+
+<p><br /></p>
+
+<p><img src="images/ruleset-settings.png" alt="Ruleset settings" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Редактиране на настройките с графичен инструмент</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/stylecop-settings.png" alt="Stylecop settings" /></p>
+
+<p><br /></p>
+
+<p><img src="images/stylecop-details.png" alt="StyleCop details" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Изключване на конкретен файл от анализ</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/stylecop-exclude-file.png" alt="Exclude file" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Изключване на анализ за конкретен блок от код (само за определено правило)</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">public void Convert(String sourceFile, String destinationFile, String Type)
+{
+    switch (Type.ToLower())
+    {
+        case "jpg":
+        case "jpeg":
+            converter = new ConverterContext(new Jpeg());
+            break;
+
+        case "gif":
+            converter = new ConverterContext(new Gif());
+            break;
+
+        case "png":
+            converter = new ConverterContext(new Png());
+            break;
+
+        default:
+		#pragma warning disable CS0162 // Unreachable code detected
+            throw new ImageFormatException();
+            break;
+		#pragma warning restore CS0162 // Unreachable code detected
+    }
+    
+    // Check source file for read access
+    CheckSourceFile(sourceFile);
+
+    // Check destination file for write access
+    CheckDestinationFile(destinationFile);
+
+    Image sourceImage = Image.FromFile(sourceFile);
+    converter.ConvertImage(sourceImage, destinationFile);
+    sourceImage.Dispose();
+}
+</code></pre>
+
+<p><br /></p>
+
+<p><img src="images/before-suppression.png" alt="Before" /></p>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">public void Convert(String sourceFile, String destinationFile, String Type)
+{
+    switch (Type.ToLower())
+    {
+        case "jpg":
+        case "jpeg":
+            converter = new ConverterContext(new Jpeg());
+            break;
+
+        case "gif":
+            converter = new ConverterContext(new Gif());
+            break;
+
+        case "png":
+		#pragma warning disable SA1101
+            converter = new ConverterContext(new Png());
+		#pragma warning restore SA1101
+            break;
+
+        default:
+		#pragma warning disable CS0162 // Unreachable code detected
+            throw new ImageFormatException();
+            break;
+		#pragma warning restore CS0162 // Unreachable code detected
+    }
+    
+    // Check source file for read access
+    CheckSourceFile(sourceFile);
+
+    // Check destination file for write access
+    CheckDestinationFile(destinationFile);
+
+    Image sourceImage = Image.FromFile(sourceFile);
+    converter.ConvertImage(sourceImage, destinationFile);
+    sourceImage.Dispose();
+}
+</code></pre>
+
+<p><br /></p>
+
+<p><img src="images/after-suppression.png" alt="After" /></p>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="инсталиране-и-конфигуриране-на-fxcop-roslyn-analyzerz">Инсталиране и конфигуриране на FxCop (Roslyn Analyzerz)</h1>
+
+<h3 id="инсталиране-1">Инсталиране</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Инсталиране на NuGet <a href="https://www.nuget.org/packages/Microsoft.CodeAnalysis.FxCopAnalyzers">пакет</a>, или</li>
+  <li>Инсталиране на Visual Studio <a href="https://marketplace.visualstudio.com/items?itemName=VisualStudioPlatformTeam.MicrosoftCodeAnalysis2017">plugin</a></li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="конфигуриране">Конфигуриране</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Разрешаване / Забраняване на автоматичен анализ на кода</li>
+</ul>
+
+<ol>
+  <li>
+    <p>Десен клик в Solution Explorer и избираме Properties, за проекта за който искаме да направим промяна</p>
+  </li>
+  <li>
+    <p>Избираме Code Analysis от настройките на проекта</p>
+  </li>
+  <li>
+    <p>Указваме типа при build в Configuration и целевата платформа в Platform</p>
+  </li>
+  <li>
+    <p>За да разрешим или забраним автоматичния анализ избираме или премахваме checkmark-а “Enable Code Analysis” за Build checkbox-а</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<ul>
+  <li>Разрешаване / Забраняване на “full solution” анализ</li>
+</ul>
+
+<ol>
+  <li>
+    <p>От лентата с менюто във Visual Studio избираме Tools &gt; Options</p>
+  </li>
+  <li>
+    <p>В диалоговия прозорец за “Options” dialog box избираме Text Editor &gt; C# &gt; Advanced</p>
+  </li>
+  <li>
+    <p>Избираме или премахваме “Enable full solution analysis” checkbox-a. Избираме OK, когато сме готови</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+<h3 id="подтискане-на-правила-за-fxcop-roslyn-analyzers">Подтискане на правила за FxCop (Roslyn analyzers)</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Глобално - създава се файл с име GlobalSuppressions.cs, където се описват всички съобщения</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">// This file is used by Code Analysis to maintain SuppressMessage 
+// attributes that are applied to this project.
+// Project-level suppressions either have no target or are given 
+// a specific target and scoped to a namespace, type, member, etc.
+
+[assembly: System.Diagnostics.CodeAnalysis.SuppressMessage("Documentation", "CA1200:Avoid using cref tags with a prefix", Justification = "&lt;Pending&gt;", Scope = "type", Target = "~T:PrimeHolding.Tools.Common.Exceptions.FileNotFoundException")]
+
+</code></pre>
+
+<p><br /></p>
+
+<ul>
+  <li>Локално - за конкретен блок от код, калс, метод, файл и др.</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">namespace PrimeHolding.Tools.Common.Exceptions
+{
+    using System;
+
+#pragma warning disable CA1200
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+    /// &lt;summary&gt;
+    ///     (Serializable) exception for signalling file not readable errors. This class cannot be
+    ///     inherited.
+    /// &lt;/summary&gt;
+    ///
+    /// &lt;seealso cref="T:PrimeHolding.Tools.Common.Exceptions.GenericException"/&gt;
+    ///////////////////////////////////////////////////////////////////////////////////////////////
+#pragma warning restore CA1200
+
+	...
+}
+</code></pre>
+
+<p><br /></p>
+
+<ul>
+  <li>За Generated code</li>
+</ul>
+
+<p><br /></p>
+
+<ol>
+  <li>
+    <p>Десен клик в Solution Explorer и избираме Properties, за проекта за който искаме да включим подтискането</p>
+  </li>
+  <li>
+    <p>Избираме Code Analysis от настройките на проекта</p>
+  </li>
+  <li>
+    <p>Активираме “Suppress results from generated code” checkbox-а</p>
+  </li>
+</ol>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="общи-препоръки">Общи препоръки</h1>
+
+<p><br /></p>
+
+<ul>
+  <li>Rule of thumb: Избягвайте изключване на файл или група от файлове от анализа на StyleCop при често срещани отклонения</li>
+  <li>По-добре да се ползват правила, които се отнасят до 90-95% от кода и да се подтискат за one-off изключения</li>
+  <li>Ако code reviewer-а не е съгласен с подтискането на съобщенията - това може да се дискутира</li>
+  <li>Изключването на конкретно правило (група от правила) трябва да се прави - единствено и само, когато се налага</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="задачи-за-самостоятелна-работа">Задачи за самостоятелна работа</h1>
+
+<ul>
+  <li>Стартирайте анализ за избран от вас проект или използвайте примерния код</li>
+  <li>Анализирайте всички резултати от инструмента</li>
+  <li>Идентифицирайте потенциални проблемни части на кода и планирайте промени за оптимизиране</li>
+  <li>Планирайте рефакторинг на одобрените промени</li>
+</ul>
+
+        </div>
+        
+
+        <div class="footer">
+            Метрики за анализ качеството на кода - Статичен анализ на качеството на C# код с инструмента StyleCop
+        </div>
+    </div>
+
+<script src="js/slideshow.js"></script>
+<script src="js/prism.js"></script>
+
+<script>
+    var slideshow = new SlideShow();
+</script>
+</body>
+</html>

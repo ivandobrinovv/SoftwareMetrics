@@ -1,0 +1,10 @@
+headers:
+  generator: "Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd"
+  author: Димитър Ников
+  email: dimitar.nikov@primeholding.com
+  title: Метрики за анализ качеството на кода
+  subtitle: Стандартни инструменти на Visual Studio за анализ на кода
+  url: http://www.primeholding.com
+  url-title: www.primeholding.com
+  description: ""
+  date: "<%= Date.today %>"

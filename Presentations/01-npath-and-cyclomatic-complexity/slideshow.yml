@@ -1,0 +1,10 @@
+headers:
+  generator: "Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd"
+  author: Димитър Ников, Пеньо Русев
+  email: prusev@sbnd.net
+  title: Метрики за анализ качеството на кода
+  subtitle: Изчисляване на NPath и цикломатична сложност
+  url: http://www.primeholding.com
+  url-title: www.primeholding.com
+  description: ""
+  date: "<%= Date.today %>"

@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Метрики за анализ качеството на кода - Стандартни инструменти на Visual Studio за анализ на кода</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Пеньо Русев">
+    <meta name="generator" content="Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="slide no-padding">
+            <h1 class="empty">&nbsp;</h1>
+            <div class="subtitle">
+                    Стандартни инструменти на Visual Studio за анализ на кода
+            </div>
+            <div class="author">
+                    Димитър Ников, Пеньо Русев<br>
+                    <a href="mailto: prusev@sbnd.net?Subject=Метрики за анализ качеството на кода">prusev@sbnd.net</a>
+            </div>
+            <div class="copyright">
+                <a href="http://www.primeholding.com" rel="noopener" target="_blank">www.primeholding.com</a>
+            </div>
+        </div>
+        
+        <div class="slide">
+            
+<!-- _S9SLIDE_ -->
+<h1 id="съдържание">Съдържание</h1>
+
+<ul>
+  <li>Въведение</li>
+  <li>Цикломатична комплекност (Cyclomatic complexity)</li>
+  <li>Брой линии изходен код (Lines of source code)</li>
+  <li>Свързаност между класовете (Class coupling)</li>
+  <li>Степен на наследяване (Depth of Inheritance)</li>
+  <li>Индекс за поддържане (Maintainability Index)</li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="въведение">Въведение</h1>
+
+<h3 id="взаимодействие-между-различните-метрики">Взаимодействие между различните метрики</h3>
+
+<p><br /></p>
+
+<p><img src="images/metrics.png" alt="Code metrics" /></p>
+
+<p><br /></p>
+
+<h3 id="предимства-при-анализ-на-софтуерните-метрики">Предимства при анализ на софтуерните метрики</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Подобрява се поддържаемостта на кода</li>
+  <li>Намалява риска при разширяване / добавяне на функционалност</li>
+  <li>Подобрява се сигурността при изпълнеие</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="цели">Цели</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Как се тълкуват метриките</li>
+  <li>По какво се различават една от друга</li>
+  <li>Кои са минимални, максимални и оптимални стойности</li>
+  <li>Как се калкулират стойностите</li>
+  <li>Как да се оптимизира кода</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="брой-редове-изходен-код-line-of-source-code--sloc--loc">Брой редове изходен код (Line of source code / SLOC / LOC)</h1>
+
+<h3 id="дефиниция">Дефиниция</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Представлява броя редове изходен код</li>
+  <li>Видове LOC:
+    <ul>
+      <li>LOC (Line of code) - брой редове във файла, съдържащи програмен код</li>
+      <li>LLOC (Logical Lines Of Code) - брой редове логически изпълним код (без коментари и празни редове)</li>
+      <li>SLOC (Source Lines Of Code) - брой редове изходен код (програмен код + коментари + многоредови символни низове)</li>
+      <li>CLOC (Comments Lines of Code) - брой редове, съдържащи само коментари</li>
+      <li>MLOC (Multiline string Line Of Code) - брой редове, съдържащи многоредови символни низове</li>
+      <li>BLOC (Blank Lines Of Code) - брой “празни” редове, съдържащи whitespace символи (интервал, таблуватор, нов ред и др.)</li>
+    </ul>
+  </li>
+  <li>Пример:</li>
+</ul>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">for (int x = 0; x &lt;= 100; x++) Console.WriteLine("X = {0}", x); // Колко реда код има в тази проста програма?
+</code></pre>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">for (int x = 0; x &lt;= 100; x++)
+{
+	Console.WriteLine("X = {0}", x);
+
+	// Колко реда код има в тази проста програма?
+}
+</code></pre>
+
+<p><br /></p>
+
+<p>За примерите по-горе, дължината (броя редове) е както следва:</p>
+
+<p><br /></p>
+
+<ul>
+  <li>Пример 1:
+    <ul>
+      <li>LOC - 1 ред</li>
+      <li>LLOC - 2 реда - един за for() и един за WriteLine()</li>
+      <li>CLOC - 1 ред</li>
+      <li>SLOC - 1 ред</li>
+    </ul>
+  </li>
+  <li>Пример 2:
+    <ul>
+      <li>LOC - 6 реда</li>
+      <li>LLOC - 2 реда</li>
+      <li>CLOC - 1 ред</li>
+      <li>SLOC - 5 реда - един за for() и WriteLine(), два за фигурните скоби, един за коментара</li>
+      <li>BLOC - 1 ред</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="общи-препоръки">Общи препоръки</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Rule of thumb: Старайте се методите ви да имат възможно най-малък брой редове код</li>
+  <li>Препоръчителни стойности за SLOC:
+    <ul>
+      <li>Минимална - 4 реда за метод, 8 за файл (минимум 1 метод във файл + namespace и дефиниция на клас)</li>
+      <li>Максимална - според ограниченията на файловата система</li>
+      <li>Препоръчителна - 40 реда за метод, 400 за файл (максимум 10 метода във файл)</li>
+    </ul>
+  </li>
+  <li>Превишаване на препоръчителната стойност е индикация за нарушвение на Single Resposibility Pattern</li>
+  <li>По-дългите методи / файлове са кандидати за refactoring</li>
+  <li>В определени случаи се допуска отклонение, ако проекта го изисква</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="свързаност-между-класовете-class-coupling">Свързаност между класовете (Class Coupling)</h1>
+
+<h3 id="дефиниция-1">Дефиниция</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Измерва зависмостите на клас от други класове / типове</li>
+  <li>За всяко ниво на зависимост (абстракция) включва брой класове / типове, от които зависи конкретния клас</li>
+  <li>В броя не се включват примитивни и built-in типове</li>
+  <li>По-висока стойност е индикация за по-висока сложност (на приложение, абстракция, архитектура и др.)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример">Пример</h3>
+
+<p><br /></p>
+
+<p><img src="images/coupling.png" alt="Class copupling" /></p>
+
+<p><br /></p>
+
+<h3 id="общи-препоръки-1">Общи препоръки</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Старайте се класовете ви да имат минимални зависимости помежду си</li>
+  <li>Старайте се да не използвате твърде много (според целите на проекта и/или екипа) библиотеки / frameworks</li>
+  <li>Използвайте Class диаграми за проследяване на връзките между класовете</li>
+</ul>
+
+<p><img src="images/class-diagram.png" alt="Class diagram" /></p>
+
+<ul>
+  <li>Използвайте CodeMap диаграми за идентифициране на висок брой зависимости</li>
+</ul>
+
+<p><img src="images/code-map.png" alt="Code-map" /></p>
+
+<p><br /></p>
+
+<p><img src="images/codemap.png" alt="Codemap" /></p>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="степен-на-наследяване-depth-of-inheritance">Степен на наследяване (Depth of Inheritance)</h1>
+
+<h3 id="дефиниция-2">Дефиниция</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Тази метрика показва позицията на класа в класовата йерархия</li>
+  <li>Всички класове са директни производни на System.Object</li>
+  <li>Стойността по подразбиране е 1 за всички класове</li>
+  <li>Имплементираните интерфейси не се отчитат при калкулиране на стойностите</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример-1">Пример</h3>
+
+<p><br /></p>
+
+<pre><code class="language-csharp">namespace Examples
+{
+    public interface IBase
+    {
+
+    }
+
+    public abstract class BaseClass : IBase
+    {
+    }
+
+    public class ChildClass : BaseClass
+    {
+
+    }
+
+    public class GrandChildClass : ChildClass
+    {
+
+    }
+}
+</code></pre>
+
+<p><br /></p>
+
+<p><img src="images/depth-classdiagram.png" alt="Class diagram" /></p>
+
+<p><br /></p>
+
+<p><img src="images/depth.png" alt="Code metrics" /></p>
+
+<p><br /></p>
+
+<h3 id="общи-препоръки-2">Общи препоръки</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Препоручва се да поддържате минимална степен на наследяване</li>
+  <li>Минимална стойност - 1</li>
+  <li>Максимална стойност - няма, според сложността и обема на проекта</li>
+  <li>Препоръчителна стойност - под 4</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="индекс-за-поддържане-maintainability-index">Индекс за поддържане (Maintainability Index)</h1>
+
+<h3 id="дефиниция-3">Дефиниция</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Комплексна метрика, която измерва усилията за поддържане на кода като качествен показател</li>
+  <li>Приема стойности от 0 до 100, като по-висока стойност означава по-лесно поддържане на кода</li>
+  <li>Стойността на индекса е базирана на следните метрики:
+    <ul>
+      <li>Цикломатична комплексност</li>
+      <li>Брой редове код</li>
+      <li>Обем на Халстед</li>
+    </ul>
+  </li>
+  <li>Пресмята се по формулата (във VisualStudio) <strong>Maintainability Index =  MAX(0,(171 - 5.2 * ln(Halstead Volume) - 0.23 * (Cyclomatic Complexity) - 16.2 * ln(Lines of Code)) * 100 / 171)</strong></li>
+  <li>Обем на Халстед се пресмята от следните метрики:
+    <ul>
+      <li>Дължина на програмата <strong>N</strong>, пресмята се по формулата <strong>N = N1 + N2</strong></li>
+      <li>Дължина на речника <strong>n</strong>, пресмята се по формулата <strong>n = n1 + n2</strong></li>
+      <li>Обем на Халстед се пресмята по формулата <strong>V = N * log2(n)</strong></li>
+      <li>Обема на една програма трябва да бъде между 20 и 1000</li>
+      <li>Стойности над 1000 са индикация за рафекторинг (метода изпълнява повече от едно действие)</li>
+      <li>Обема на един файл трябва да бъде между 100 и 8000</li>
+    </ul>
+  </li>
+  <li>Дължина на програмата <strong>N</strong>, включва:
+    <ul>
+      <li>Сумата от броя на операторите <strong>N1</strong></li>
+      <li>Сумата от броя на операндите <strong>N2</strong></li>
+    </ul>
+  </li>
+  <li>Дължина на речника <strong>n</strong>, включва:
+    <ul>
+      <li>Сумата от броя на различните (уникални) оператори <strong>n1</strong></li>
+      <li>Сумата от броя на различните (уникални) операнди <strong>n2</strong></li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="пример-2">Пример</h3>
+
+<p><br /></p>
+
+<p><img src="images/index.png" alt="Maintainability Index" /></p>
+
+<p><br /></p>
+
+<h3 id="общи-препоръки-3">Общи препоръки</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Тълкуване на резултатите:
+    <ul>
+      <li>Стойности от 0 до 9 - нисък индекс за поддържане на кода</li>
+      <li>Стойности от 10 до 20 - среден индекс за поддържане на кода</li>
+      <li>Стойности от 21 до 100 - висок индекс за поддържане на кода</li>
+    </ul>
+  </li>
+  <li>Стойности под 21 са индикация за рефакторинг, ако е приложимо</li>
+  <li>Полезни инструменти:
+    <ul>
+      <li><a href="https://marketplace.visualstudio.com/items?itemName=Jean-MarcPrieur.MicrosoftCodeLensCodeHealthIndicator-15077">Microsoft CodeLens Code Health Indicator</a></li>
+      <li><a href="https://marketplace.visualstudio.com/items?itemName=JeffChenCodingConsultantCo.CodeMetricforVisualStudio">CodeMetric for Visual Studio</a>
+<br /></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="задачи-за-самостоятелна-работа">Задачи за самостоятелна работа</h1>
+
+<ul>
+  <li>Стартирайте Code analysis за избран от вас проект или използвайте примерния код</li>
+  <li>Анализирайте всички резултати от инструментите на Visual Studio</li>
+  <li>Идентифицирайте потенциални проблемни части на кода и планирайте промени за оптимизиране</li>
+  <li>Направете анализ на получените стойности и идентифицирайте потенциални проблеми места в кода</li>
+</ul>
+
+        </div>
+        
+
+        <div class="footer">
+            Метрики за анализ качеството на кода - Стандартни инструменти на Visual Studio за анализ на кода
+        </div>
+    </div>
+
+<script src="js/slideshow.js"></script>
+<script src="js/prism.js"></script>
+
+<script>
+    var slideshow = new SlideShow();
+</script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+﻿using SoftwareMetrics_2_InterfaceExample;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace SoftwareMetrics_2_Shapes
+{
+    class Coord : IShape
+    {
+        public int N { get; set; }
+
+        public string Draw()
+        {
+            return N.ToString();
+        }
+
+        public bool IsValid()
+        {
+            if (N < 0)
+                return false;
+
+            return true;
+        }
+    }
+    //Point
+    class Point : IShape
+    {
+        public Coord X { get; set; }
+        public Coord Y { get; set; }
+
+        public string Draw()
+        {
+            return $"Point ({X.Draw()}, {Y.Draw()})";
+        }
+
+        public bool IsValid()
+        {
+            return X.IsValid() && Y.IsValid();
+        }
+    }
+    
+    //Line
+    class Line : IShape
+    {
+        public Point A { get; set; }
+        public Point B { get; set; }
+
+        public string Draw()
+        {
+            Console.WriteLine($"Line with Points ({A.X.N}, {A.Y.N}); ({B.X.N}, {B.Y.N})");
+            return $"Line with {A.Draw()}, {B.Draw()}";
+        }
+
+        public bool IsValid()
+        {
+            if (A.IsValid() == false || B.IsValid() == false)
+            {
+                return false;
+            }
+            if (A == B)
+            {
+                return false;
+            }
+            return true;
+        }
+    }
+    //Triangle
+    class Triangle : IShape
+    {
+        public Line AB { get; set; }
+        public Line BC { get; set; }
+        public Line CA { get; set; }
+
+        public string Draw()
+        {
+            Console.WriteLine($"Triangle with lines ({AB.A.X.N}, {AB.A.Y.N}), {AB.B.X.N}, {AB.B.Y.N}...");
+
+            return $"Triange with {AB.Draw()}, {BC.Draw()}, {CA.Draw()}";
+        }
+
+        public bool IsValid()
+        {
+            throw new NotImplementedException();
+        }
+    }
+
+    class Shape : IShape
+    {
+        public long AnyValue { get; set; }
+        public List<Line> ShapeLines { get; set; }
+
+        public string Draw()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool IsValid()
+        {
+            return ShapeLines.Any(i => i.IsValid() == false) == false;
+        }
+    }
+
+    class Rectangle : Shape
+    {
+        public new bool IsValid()
+        {
+            if (base.IsValid() != true)
+            {
+                return false;
+            }
+            if (ShapeLines.Count != 4)
+            {
+                return false;
+            }
+            //...
+
+            return true;
+        }
+    }
+}
