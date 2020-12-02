@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Метрики за анализ качеството на кода - Статичен анализ на кода с платформата Coverity</title>
+
+    <meta name="description" content="">
+    <meta name="author" content="Димитър Ников">
+    <meta name="generator" content="Shhh. Be vewy vewy quiet, I'm hunting wabbits (c) 2017 - 2018 Elmer Fudd">
+
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="css/prism.css" rel="stylesheet">
+    <link href="css/slideshow.css" rel="stylesheet">
+    <link href="favicon.ico" type="image/x-icon" rel="icon"/>
+    <link href="favicon.ico" type="image/x-icon" rel="shortcut icon"/>
+</head>
+<body>
+    <div class="container">
+        <div class="slide no-padding">
+            <h1 class="empty">&nbsp;</h1>
+            <div class="subtitle">
+                    Статичен анализ на кода с платформата Coverity
+            </div>
+            <div class="author">
+                    Димитър Ников<br>
+                    <a href="mailto: dimitar.nikov@primeholding.com?Subject=Метрики за анализ качеството на кода">dimitar.nikov@primeholding.com</a>
+            </div>
+            <div class="copyright">
+                <a href="http://www.primeholding.com" rel="noopener" target="_blank">www.primeholding.com</a>
+            </div>
+        </div>
+        
+        <div class="slide">
+            
+<!-- _S9SLIDE_ -->
+<h1 id="съдържание">Съдържание</h1>
+
+<ul>
+  <li>Въведение</li>
+  <li>Регистрация и конфигуриране на проект</li>
+  <li>Конфигуриране на услугата</li>
+  <li>Тълкуване на резултата</li>
+  <li>Q &amp; A</li>
+</ul>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="въведение">Въведение</h1>
+
+<ul>
+  <li><a href="https://scan.coverity.com/" target="_blank">Coverity Scan</a> e уеб базирана услуга за статичен анализ на програмен код</li>
+  <li>Има интеграция с Github и Travis CI</li>
+  <li>Поддържа различни нива на статичен анализ
+    <ul>
+      <li>Compiler warnings - проверява дали програмата е type safe</li>
+      <li>Byte code анализ - идентифицира дефекти в intermediate код</li>
+      <li>Source code анализ - генерира възможно най-точни резултати</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="видове-грешки-пропуски-разпознавани-от-coverity-scan">Видове грешки (пропуски) разпознавани от Coverity Scan</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Resource leaks
+    <ul>
+      <li>Database connection leaks</li>
+      <li>Resource leaks</li>
+      <li>Socker &amp; Stream leaks</li>
+    </ul>
+  </li>
+  <li>Грешки при ползване на API
+    <ul>
+      <li>Използване на вече освободени ресурси</li>
+    </ul>
+  </li>
+  <li>Null pointer dereferences
+    <ul>
+      <li>Dereferences след проверка за null стойности</li>
+      <li>Dereferences преди проверка за null стойности</li>
+      <li>Dereferences при връщане на null стойности</li>
+    </ul>
+  </li>
+  <li>Проблеми при контролни конструкции (control flow)
+    <ul>
+      <li>Допълнителен символ ‘;’ (best hide’n’seek champion since 1985 ;-&gt;)</li>
+      <li>Сравнение на несъвместими типове</li>
+      <li>Използване на ‘=’ вместо ‘==’</li>
+    </ul>
+  </li>
+  <li>Подозрителен код
+    <ul>
+      <li>Copy / Paste грешки</li>
+      <li>Значителни аномалии при indentation</li>
+      <li>Разменени аргументи</li>
+    </ul>
+  </li>
+  <li>и други</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="регистрирация-и-конфигуриране-на-услугата">Регистрирация и конфигуриране на услугата</h1>
+
+<h3 id="регистрация">Регистрация</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>Регистрация на standalone акаунт</li>
+  <li>Регистрация с Github акаунт (препоръчително)</li>
+</ul>
+
+<p><br /></p>
+
+<h3 id="създаване-на-проект">Създаване на проект</h3>
+
+<p><br /></p>
+
+<ul>
+  <li>ИЗбираме бутон “Add a New Project”</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step1.png" alt="Step 1" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Избираме бутон “Reload repo list from GitHub”</li>
+  <li>Избираме името на хранилището от GitHub, което съдържа изходния код на проекта за анализ</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step2.png" alt="Step 2" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Добавяме мета данни за проекта - Роля, Програмен език, Тип на лиценза и др.</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step3.png" alt="Step 3" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Избираме бутон “Submit build”</li>
+  <li>По желание може да добавим интеграция с Travis CI</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step4.png" alt="Step 4" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Добавяме мета данни за build-а
+    <ul>
+      <li>Версия на проекта</li>
+      <li>Описание на проекта</li>
+      <li>Път до архива съдържащ сурови данни от Coverity Scan Self-Build инструмента</li>
+    </ul>
+  </li>
+  <li>Инсталиране на Coverity Scan Self-Build инструмента и използване
+    <ul>
+      <li>Инсталационен дистрибутив - <a href="https://scan.coverity.com/download/csharp/win64">Win64, C#</a>, <a href="https://scan.coverity.com/download/csharp/win32">Win32, C#</a></li>
+      <li>Разархивираме в директория по избор</li>
+      <li>Добавяме bin/ директорията на инстримента към <strong>PATH</strong> променливата</li>
+      <li>В директорията на проекта изпълняваме cov-build –dir cov-int msbuild /t:Rebuild</li>
+      <li>Архивираме междинната директория (в примера с име cov-int)</li>
+    </ul>
+  </li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step5.png" alt="Step 5" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Преглед на статуса за новодобавения build</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step6.png" alt="Step 6" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Избираме линк “Configured Components” от страницата с информация за проекта (по желание)</li>
+  <li>Добавяме необходимите компоненти за multi-project solution, ако е необходимо</li>
+</ul>
+
+<p><br /></p>
+
+<p><img src="images/step7.png" alt="Step 7" /></p>
+
+<p><br /></p>
+
+<ul>
+  <li>Резултатите са достъпни след 1-2 работни дни</li>
+</ul>
+
+<p><br /></p>
+
+
+
+        </div>
+        
+        <div class="slide">
+            <!-- _S9SLIDE_ -->
+<h1 id="задачи-за-самостоятелна-работа">Задачи за самостоятелна работа</h1>
+
+<ul>
+  <li>Конфигурирайте работното обркъжение за анализ на изходния код</li>
+  <li>Стартирайте анализ за избран от вас проект или използвайте примерния код</li>
+  <li>Анализирайте всички резултати от инструмента</li>
+  <li>Идентифицирайте потенциални проблемни части на кода и планирайте промени за оптимизиране</li>
+  <li>Планирайте рефакторинг на одобрените промени</li>
+</ul>
+
+        </div>
+        
+
+        <div class="footer">
+            Метрики за анализ качеството на кода - Статичен анализ на кода с платформата Coverity
+        </div>
+    </div>
+
+<script src="js/slideshow.js"></script>
+<script src="js/prism.js"></script>
+
+<script>
+    var slideshow = new SlideShow();
+</script>
+</body>
+</html>
